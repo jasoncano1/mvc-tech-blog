@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    background: #D8EACE;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #221010;
+}
+
+nav > div {
+    width: 100%;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 2vw;
+    margin: 10px 20px;
+}
+
+nav > h1 {
+    color: #221010;
+    background: #d8ead3;
+    padding: 5px 20px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 1px gray;
+    font-size: 3vw;
+    font-weight: 900;
+    margin-left: 20px;
+}
+
+section {
+    width: 90%;
+    margin: 10px auto;
+    border: 2px solid #000;
+}
+
+section > header {
+    background: #221010;
+    color: white;
+    margin-top: 0;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+section p {
+    width: 90%;
+    margin: 10px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+}
+
+.login > *:not(:first-child) {
+    margin: 5px;
+    font-size: 2vw;
+}
+
+.login button {
+    background: gray;
+    color: white;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.posts {
+    width: 90%;
+    margin: 10px auto;
+    background: #666666;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.posts h4 {
+    margin: 10px;
+}
+
+#post {
+    background: #221010;
+    color: white;
+    padding: 5px 10px;
+    font-size: 2.5vw;
+    margin: 10px auto;
+    border-radius: 8px;
+}
+
+textarea,#title {
+    padding: 10px;
+}
