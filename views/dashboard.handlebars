@@ -1,0 +1,52 @@
+<main id="main">
+    {{#each posts}}
+        <div class="posts">
+            <h4>{{title}}</h4>
+            <h4>{{format_date createdAt}}</h4>
+        </div>
+    {{/each}}
+
+     <section class="login">
+            <header><h3>Edit Post</h3> </header>
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="Objec-Relational Mapping">
+            <label for="content">Content</label>
+            <textarea type="text" id="content">I have really loved learning about ORMs.  It's really simplified the way I create queries in SQL !
+            </textarea>
+            <button id="login">Update Post</button>
+            <button id="login">Delete</button>
+        </section>
+</main>
+<button id="post">+ New Post</button>
+
+
+<script>
+    post.onclick = () => {
+        main.innerHTML = `
+         <section class="login">
+            <header><h3>Create New Post</h3> </header>
+            <label for="title">Title</label>
+            <input type="text" id="title">
+            <label for="content">Content</label>
+            <textarea type="text" id="content"></textarea>
+            <button id="newPost">Create</button>
+        </section>`;
+
+        newPost.onclick = () => {
+            fetch('/api/post', {
+                method: 'POST',
+                body: JSON.stringify({
+                    title: title.value,
+                    content: content.value
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(function () {
+                window.location.replace('/dashboard');
+            }).catch(err => console.log(err));
+        }
+    }
+
+
+</script>

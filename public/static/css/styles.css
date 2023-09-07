@@ -99,3 +99,7 @@ section p {
 textarea,#title {
     padding: 10px;
 }
+
+main {
+    min-height: 30vh;
+}

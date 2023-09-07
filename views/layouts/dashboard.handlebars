@@ -11,22 +11,15 @@
 <body>
     <nav>
         <div>
-            <a href="/home">Home</a>
+            <a href="/">Home</a>
             <a href="/dashboard">Dashboard</a>
-            <a href="/login">Login</a>
-
-            {{#if loggedIn}}
-                <a href="/logout">Logout</a>
-            {{else}}
-                <a href="/signup">Sign Up</a>
-            {{/if}}
+            <a href="/logout">Logout</a>
         </div>
-        <h1>The Tech Blog</h1>
+        <h1>Your Dashboard</h1>
     </nav>
 
-    <main>
-        {{{body}}}
-    </main>
+    {{{body}}}
+
 </body>
 
 </html>

@@ -5,7 +5,24 @@
     <label for="username">Username</label>
     <input type="text" id="login">
     <label for="password">Password</label>
-    <input type="text" id="password">
-    <button id="login">Login!</button>
+    <input type="password" id="password">
+    <button id="loginBtn">Login!</button>
     <a href="/signup">Sign up instead</a>
 </section>
+
+<script>
+loginBtn.onclick = function() {
+    fetch('/api/user/login', {
+        method: 'POST',
+        body: JSON.stringify({
+            username: login.value,
+            password: password.value
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(function() {
+        window.location.replace('/dashboard');
+    }).catch(err => console.log(err));
+}
+</script>

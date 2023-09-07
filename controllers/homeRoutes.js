@@ -1,7 +1,7 @@
-const router = require('express').Router();
-// const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
+const router = require('express').Router();
 const sequelize = require('../config/connection');
+const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
     res.render('homepage');
@@ -15,9 +15,19 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
-// router.get('/dashboard', (req, res) => {
-//     res.render('dashboard');
-// });
+router.get('/dashboard', withAuth, (req, res) => {
+    Post.findAll({
+        where: {
+            userId: req.session.userId
+        }
+    }).then(dbPostData => {
+        const posts = dbPostData.map(post => post.get({ plain: true }));
+        res.render('dashboard', { posts, loggedIn: true , layout: 'dashboard'});
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 // router.get('/post/:id', (req, res) => {
 //     res.render('single-post');
