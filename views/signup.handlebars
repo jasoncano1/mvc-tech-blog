@@ -1,0 +1,30 @@
+<section class="login">
+    <header>
+        <h3>Sign Up</h3>
+    </header>
+    <label for="username">Username</label>
+    <input type="text" id="login">
+    <label for="password">Password</label>
+    <input type="password" id="password">
+    <button id="signup">Sign Up!</button>
+    <a href="/login">Login instead</a>
+</section>
+
+<script>
+signup.onclick = function() {
+    fetch('/api/users', {
+        method: 'POST',
+        body: JSON.stringify({
+            username: login.value,
+            password: password.value
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(function() {
+        window.location.replace('/dashboard');
+    }).catch(err => console.log(err));
+}
+
+
+</script>
